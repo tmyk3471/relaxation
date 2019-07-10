@@ -78,17 +78,45 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <!--div class="title m-b-md">
                     Laravel
-                </div>
+                </div-->
 
-                <div class="links">
+                <!--div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div-->
+                
+                <div>
+                    @if (count($therapists) > 0)
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>名前</th>
+                                    <th>所属店舗</th>
+                                    <th>画像</th>
+                                    <th>コメント</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($therapists as $therapist)
+                                <tr>
+                                    <td>{{ $therapist->id }}</td>
+                                    <td>{{ $therapist->name }}</td>
+                                    <td>{{ $therapist->shop_id }}</td>
+                                    <td>{{ $therapist->img1 }}</td>
+                                    <td>{{ $therapist->text }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
+                
             </div>
         </div>
     </body>
