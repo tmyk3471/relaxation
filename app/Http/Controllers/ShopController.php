@@ -4,31 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Therapist;    // 追加
-use App\User;   // 登録データ確認用、あとで消す
-//use App\Article;    // 追加　※ニュース一覧設置の際に実装
+//use App\Shop;    // 追加
 
-class ToppageController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     
+    
     // getで/にアクセスされた場合の「一覧表示処理」
     public function index()
     {
-//      $therapists = Therapist::all();
-        $therapists = Therapist::orderBy('id', 'desc')->paginate(20);
-        $users = User::orderBy('id', 'desc')->paginate(20); //登録データ確認用、あとで消す
-//      $articles = Article::all();
-//      $articles = Article::orderBy('id', 'desc')->paginate(20);
+        $shops = Shop::orderBy('id', 'desc')->paginate(20);
         
-        return view('welcome', [
-            'therapists' => $therapists,
-            'users' => $users, //登録データ確認用、あとで消す
-//          'articles' => $articles,
+        return view('shop', [
+            'shops' => $shops,
         ]);
     }
 

@@ -1,123 +1,78 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <!--div class="title m-b-md">
-                    Laravel
-                </div-->
-
-                <!--div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div-->
-                
-                <div>
-                    @if (count($therapists) > 0)
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>名前</th>
-                                    <th>所属店舗</th>
-                                    <th>画像</th>
-                                    <th>コメント</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($therapists as $therapist)
-                                <tr>
-                                    <td>{{ $therapist->id }}</td>
-                                    <td>{{ $therapist->name }}</td>
-                                    <td>{{ $therapist->shop_id }}</td>
-                                    <td>{{ $therapist->img1 }}</td>
-                                    <td>{{ $therapist->text }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @endif
-                </div>
-                
-            </div>
+@section('content')
+    <!--div class="center jumbotron">
+        <div class="text-center">
+            <h1>Welcome to the Microposts</h1>
         </div>
-    </body>
-</html>
+    </div-->
+    <div class="row">
+        <div class="sub col-12 col-md-3">
+            <h3>地域で探す</h3>
+            <ul>
+                <li>梅田</li>
+                <li>本町</li>
+                <li>心斎橋</li>
+                <li>難波</li>
+            </ul>
+        </div>
+        <div class="main col-12 col-md-9">
+            <h3>おすすめセラピスト</h3>
+            <div class="recommend row">
+                @if (count($therapists) > 0)
+                    @foreach ($therapists as $therapist)
+                        <div class="card" style="width:24%; margin-right:1%;">
+                            <img src="{{ $therapist->img1 }}.jpg" class="card-img-top" alt="{{ $therapist->name }}さんの画像">
+                            <div class="card-body">
+                                <p class="card-text" style="margin:0;">名前：{{ $therapist->name }}</p>
+                                <p class="card-text" style="margin:0;">店舗名：{{ $therapist->shop_id }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <div style="margin-top:1rem; color:blue;">
+                    <h6>メモ</h6>
+                    ・画像の置き場所を調べる<br>
+                    ・shop_idを店舗名に変更する方法を調べる
+                </div>
+            </div>
+            
+            <h3 style="margin-top:3rem;">最新ニュース</h3>
+            <p>※実装保留</p>
+
+            <div style="margin-top:3rem;">
+                <h4>登録データ確認用 ※あとで消す</h4> 
+                <h6>ユーザー一覧</h6>
+                @if (count($users) > 0)
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>名前</th>
+                                <th>メール</th>
+                                <th>権限</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->role_id }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
+            </div>
+
+
+            
+        </div>
+        
+    </div>
+    
+
+    
+@endsection

@@ -15,17 +15,22 @@ Route::get('/', 'ToppageController@index');
 
 Route::resource('/', 'ToppageController');
 
-/*
-// CRUD
-// メッセージの個別詳細ページ表示
-Route::get('messages/{id}', 'MessagesController@show');
-// メッセージの新規登録を処理（新規登録画面を表示するためのものではありません）
-Route::post('messages', 'MessagesController@store');
-// メッセージの更新処理（編集画面を表示するためのものではありません）
-Route::put('messages/{id}', 'MessagesController@update');
-// メッセージを削除
-Route::delete('messages/{id}', 'MessagesController@destroy');
+// ユーザ登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
-// index: showの補助ページ
-Route::get('messages', 'MessagesController@index');
-*/
+// ログイン認証
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+// セラピスト一覧
+Route::get('therapist/', 'TherapistController@index')->name('therapist');
+
+// ニュース一覧
+Route::get('news', function () { return view('news');});
+// Route::get('news/', 'ArticleController@index')->name('news');
+
+// 店舗一覧
+Route::get('shop', function () { return view('shop');});
+// Route::get('shop/', 'ShopController@index')->name('shop');
