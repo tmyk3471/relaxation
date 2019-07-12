@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--div class="center jumbotron">
-        <div class="text-center">
-            <h1>Welcome to the Microposts</h1>
-        </div>
-    </div-->
     <div class="row">
         <div class="sub col-12 col-md-3">
             <h3>地域で探す</h3>
@@ -31,7 +26,7 @@
                     @endforeach
                 @endif
                 <div style="margin-top:1rem; color:blue;">
-                    <h6>メモ</h6>
+                    <h6>■課題</h6>
                     ・画像の置き場所を調べる<br>
                     ・shop_idを店舗名に変更する方法を調べる
                 </div>
@@ -40,35 +35,6 @@
             <h3 style="margin-top:3rem;">最新ニュース</h3>
             <p>※実装保留</p>
 
-            <div style="margin-top:3rem;">
-                <h4>登録データ確認用 ※あとで消す</h4> 
-                <h6>ユーザー一覧</h6>
-                @if (count($users) > 0)
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>名前</th>
-                                <th>メール</th>
-                                <th>権限</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role_id }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                @endif
-            </div>
-
-
-            
         </div>
         
     </div>

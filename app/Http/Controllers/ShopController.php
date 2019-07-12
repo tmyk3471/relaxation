@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use App\Shop;    // 追加
+use App\Shop;    // 追加
 
 class ShopController extends Controller
 {

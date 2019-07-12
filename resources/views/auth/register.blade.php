@@ -34,10 +34,13 @@
 
                 {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            
             <div style="margin-top:1rem; color:blue;">
-                <h6>メモ</h6>
-                ・role_id='2'を送る方法を調べる<br>
+                <h6>■メモ</h6>
+                ・このページでは一般会員の登録のみができる(role_id=2)<br>
+                ・店舗会員(role_id=3)の登録は、管理者（role_id=1）が管理者専用ページで登録ができる<br>
             </div>
+            
         </div>
     </div>
 @endsection

@@ -42,6 +42,11 @@
                     </table>
                 @endif
             </div>
+            
+            <div style="margin-top:1rem; color:blue;">
+                <h6>■課題</h6>
+                ・therapistsテーブルのshop_idを、店舗名（shopsテーブルのname）が表示されるようにする<br>
+            </div>
 
         </div>
     </div>

@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto" style="margin-right:2rem;">
                 <li class="nav-item">{!! link_to_route('therapist', 'セラピスト一覧', [], ['class' => 'nav-link']) !!}</li>
                 <li class="nav-item"><a href="news" class="nav-link">ニュース一覧</a></li>
-                <li class="nav-item"><a href="shop" class="nav-link">店舗一覧</a></li>
+                <li class="nav-item">{!! link_to_route('shop', '店舗一覧', [], ['class' => 'nav-link']) !!}</li>
                 <li class="nav-item"><a href="#" class="nav-link">掲載依頼</a></li>
             </ul>
             <ul class="navbar-nav">

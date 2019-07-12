@@ -32,5 +32,4 @@ Route::get('news', function () { return view('news');});
 // Route::get('news/', 'ArticleController@index')->name('news');
 
 // 店舗一覧
-Route::get('shop', function () { return view('shop');});
-// Route::get('shop/', 'ShopController@index')->name('shop');
+Route::get('shop/', 'ShopController@index')->name('shop');

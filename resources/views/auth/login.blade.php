@@ -22,7 +22,14 @@
                 {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
 
-            <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
+            <div style="margin-top:1rem;">
+                <h6 style="color:blue;">■課題</h6>
+                <div style="color:blue;">・ログイン認証後に表示ページするページを権限ごとに振り分ける！！</div>
+                <h6 style="margin-top:1rem">■登録済みユーザ</h6>
+                ・id: 2, name: "user2",    email: "user2@gmail.com",    role_id: "2"<br>
+                ・id: 3, name: "kawakami", email: "tmyk3471@gmail.com", role_id: "1"<br>
+                ・id: 8, name: "shop1",    email: "shop1@gmail.com",    role_id: "3"<br>
+            </div>
         </div>
     </div>
 @endsection
